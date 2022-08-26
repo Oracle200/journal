@@ -1,3 +1,12 @@
+<?php 
+    session_start();
+    if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+        header("location: login.php");
+        exit;
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +19,17 @@
 
 <body>
     <a href="/login.php">Войти</a>
-    <a href="/admin.php">Админская панель</a>
+    <?php
+        if ($_SESSION["status"] === "admin"){ 
+            ?>
+            <a href="/admin.php">Админская панель</a>
+            <?
+        }
+    ?>
+    <a href="/exit.php">ВЫЙТИ</a>
+
+    <h1> <?= htmlspecialchars($_SESSION["username"]) ?></h1>
+    <h2> <?= htmlspecialchars($_SESSION["status"]) ?></h2>
 </body>
 
 </html>
