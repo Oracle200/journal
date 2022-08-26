@@ -9,8 +9,8 @@
 </head>
 
 <body>
-    <h1>Привет мир</h1>
-    <a href="/admin.php">админская панель</a>
+    <a href="/login.php">Войти</a>
+    <a href="/admin.php">Админская панель</a>
 </body>
 
 </html>
